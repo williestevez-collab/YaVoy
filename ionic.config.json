@@ -1,0 +1,7 @@
+{
+  "name": "YaVoy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
