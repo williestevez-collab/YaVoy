@@ -1,3 +1,131 @@
+
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <!-- MENÚ LATERAL -->
+  <ion-menu
+    menuId="main-menu"
+    contentId="main-content"
+    side="start"
+    type="overlay">
+
+    <!-- ENCABEZADO DEL MENÚ -->
+    <ion-header>
+      <ion-toolbar color="dark">
+        <ion-title>
+          Ya<span class="logo-yavoy">Voy</span>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+
+      <!-- IDENTIDAD YAVOY -->
+      <div class="menu-header">
+
+        <div class="menu-logo">Y</div>
+
+        <h2>YaVoy</h2>
+
+        <p>¡Lo pides, YaVoy!</p>
+
+      </div>
+
+      <!-- OPCIONES DE NAVEGACIÓN -->
+      <ion-list lines="none">
+
+        <ion-menu-toggle autoHide="true">
+
+          <!-- INICIO -->
+          <ion-item
+            button
+            routerLink="/"
+            routerDirection="root">
+
+            <ion-icon
+              name="home-outline"
+              slot="start">
+            </ion-icon>
+
+            <ion-label>Inicio</ion-label>
+
+          </ion-item>
+
+          <!-- CATEGORÍAS -->
+          <ion-item
+            button
+            routerLink="/categorias"
+            routerDirection="root">
+
+            <ion-icon
+              name="grid-outline"
+              slot="start">
+            </ion-icon>
+
+            <ion-label>Categorías</ion-label>
+
+          </ion-item>
+
+          <!-- PRODUCTOS -->
+          <ion-item
+            button
+            routerLink="/productos"
+            routerDirection="root">
+
+            <ion-icon
+              name="basket-outline"
+              slot="start">
+            </ion-icon>
+
+            <ion-label>Productos</ion-label>
+
+          </ion-item>
+
+          <!-- PEDIDOS -->
+          <ion-item
+            button
+            routerLink="/pedidos"
+            routerDirection="root">
+
+            <ion-icon
+              name="receipt-outline"
+              slot="start">
+            </ion-icon>
+
+            <ion-label>Pedidos</ion-label>
+
+          </ion-item>
+
+          <!-- PERFIL -->
+          <ion-item
+            button
+            routerLink="/perfil"
+            routerDirection="root">
+
+            <ion-icon
+              name="person-outline"
+              slot="start">
+            </ion-icon>
+
+            <ion-label>Perfil</ion-label>
+
+          </ion-item>
+
+        </ion-menu-toggle>
+
+      </ion-list>
+
+      <!-- PIE DEL MENÚ -->
+      <div class="menu-footer">
+
+        <p>YaVoy · Tu compra fácil</p>
+
+      </div>
+
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- CONTENIDO PRINCIPAL DE LA APLICACIÓN -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+
 </ion-app>

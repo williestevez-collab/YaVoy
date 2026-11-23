@@ -1,0 +1,140 @@
+/* =========================
+   PERFIL - YAVOY
+========================= */
+
+.perfil-header ion-toolbar {
+  --background: #101214;
+  --color: #ffffff;
+}
+
+.perfil-content {
+  --background: #101214;
+  color: #ffffff;
+}
+
+/* PERFIL PRINCIPAL */
+
+.perfil-principal {
+  text-align: center;
+  padding: 30px 20px 25px;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #252729;
+  border: 3px solid #ff6b00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+
+.avatar ion-icon {
+  font-size: 45px;
+  color: #ff6b00;
+}
+
+.perfil-principal h2 {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.perfil-principal p {
+  color: #a5a5a5;
+  font-size: 14px;
+  margin: 0 0 18px;
+}
+
+/* BOTÓN EDITAR */
+
+.btn-editar {
+  --color: #ff6b00;
+  --border-color: #ff6b00;
+  --border-radius: 20px;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* SECCIONES */
+
+.seccion {
+  margin: 0 16px 25px;
+}
+
+.seccion h3 {
+  color: #ff6b00;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 12px 5px;
+}
+
+/* LISTAS */
+
+.lista-perfil {
+  background: #17191b;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 5px 0;
+}
+
+.lista-perfil ion-item {
+  --background: #17191b;
+  --color: #ffffff;
+  --border-color: #2a2d30;
+  --padding-start: 16px;
+  --inner-padding-end: 12px;
+  --min-height: 68px;
+}
+
+.lista-perfil ion-item::part(native) {
+  background: #17191b;
+}
+
+.lista-perfil ion-item ion-icon[slot="start"] {
+  color: #ff6b00;
+  font-size: 22px;
+  margin-right: 14px;
+}
+
+.lista-perfil ion-item ion-icon[slot="end"] {
+  color: #777777;
+  font-size: 18px;
+}
+
+.lista-perfil ion-label h3 {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.lista-perfil ion-label p {
+  color: #999999;
+  font-size: 12px;
+}
+
+/* CERRAR SESIÓN */
+
+.cerrar-sesion {
+  margin: 25px 16px;
+}
+
+.cerrar-sesion ion-button {
+  --border-radius: 12px;
+  --border-width: 1px;
+  font-weight: 600;
+  height: 48px;
+}
+
+/* VERSIÓN */
+
+.version {
+  text-align: center;
+  color: #666666;
+  font-size: 12px;
+  padding: 10px 0 25px;
+}

@@ -1,0 +1,310 @@
+
+<ion-header class="productos-header">
+  <ion-toolbar>
+    <div class="brand-container">
+      <div class="brand-logo">Y</div>
+
+      <div class="brand-text">
+        <h1>Ya<span>Voy</span></h1>
+        <p>¡Lo pides, YaVoy!</p>
+      </div>
+    </div>
+
+    <ion-button slot="end" fill="clear" class="cart-button">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-badge color="danger">0</ion-badge>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="productos-content">
+
+  <!-- GESTO PULL TO REFRESH -->
+  <ion-refresher
+    slot="fixed"
+    (ionRefresh)="refrescarProductos($event)">
+
+    <ion-refresher-content
+      pullingText="Desliza para actualizar"
+      refreshingText="Actualizando productos..."
+      pullMin="80"
+      pullMax="150">
+    </ion-refresher-content>
+
+  </ion-refresher>
+
+  <!-- ENCABEZADO DEL CATÁLOGO -->
+  <section class="catalog-header">
+    <span class="catalog-label">NUESTRO CATÁLOGO</span>
+
+    <h2>Encuentra tus <span>productos</span></h2>
+
+    <p>Todo lo que necesitas, en un solo lugar.</p>
+  </section>
+
+  <!-- CATEGORÍA SELECCIONADA -->
+  <section
+    class="selected-category"
+    *ngIf="categoriaSeleccionada">
+
+    <div class="selected-category-info">
+      <span class="category-label">ESTÁS EXPLORANDO</span>
+
+      <h2>{{ categoriaSeleccionada }}</h2>
+
+      <p>
+        {{ productos.length }}
+        {{ productos.length === 1 ? 'producto disponible' : 'productos disponibles' }}
+      </p>
+    </div>
+
+    <ion-button
+      fill="clear"
+      class="back-categories-button"
+      (click)="navegarCategorias()">
+
+      <ion-icon name="grid-outline" slot="start"></ion-icon>
+      Ver categorías
+
+    </ion-button>
+  </section>
+
+  <!-- PRODUCTO DESTACADO -->
+  <section
+    class="featured-section"
+    *ngIf="!categoriaSeleccionada || categoriaSeleccionada === 'Alimentos'">
+
+    <ion-card class="featured-card">
+
+      <!-- CONTENEDOR EXCLUSIVO PARA EL ZOOM -->
+      <div
+        class="featured-image zoom-container"
+        (touchstart)="iniciarZoom($event)"
+        (touchmove)="aplicarZoom($event)"
+        (touchend)="finalizarZoom($event)"
+        (touchcancel)="finalizarZoom($event)">
+
+        <img
+          src="/assets/img/galletas-ritz.png"
+          alt="Galletas Ritz"
+          class="zoom-image"
+          [style.transform]="'scale(' + zoom + ')'">
+
+      </div>
+
+      <div class="featured-info">
+        <span class="featured-label">PRODUCTO DESTACADO</span>
+
+        <h3>Galletas Ritz</h3>
+
+        <p>Galletas saladas sabor queso.</p>
+
+        <strong>RD$45.00</strong>
+      </div>
+
+    </ion-card>
+  </section>
+
+  <!-- LISTA DE PRODUCTOS -->
+  <section
+    class="products-section"
+    *ngIf="productos.length > 0">
+
+    <div class="section-heading">
+      <h3>
+        {{ categoriaSeleccionada ? 'Productos de ' + categoriaSeleccionada : 'Todos los productos' }}
+      </h3>
+
+      <span>{{ productos.length }} productos</span>
+    </div>
+
+    <ion-list class="products-list" lines="none">
+
+      <ion-item-sliding
+        *ngFor="let producto of productos"
+        class="product-sliding">
+
+        <ion-item
+          class="product-item"
+          lines="none"
+          (touchstart)="iniciarMenuContextual($event, producto)"
+          (touchend)="cancelarMenuContextual()"
+          (touchmove)="cancelarMenuContextual()"
+          (contextmenu)="mostrarMenuContextual($event, producto)">
+
+          <!-- IMAGEN DEL PRODUCTO -->
+          <div class="product-image">
+
+            <img
+              *ngIf="producto.imagen"
+              [src]="producto.imagen"
+              [alt]="producto.nombre">
+
+            <div
+              *ngIf="!producto.imagen"
+              class="product-placeholder">
+
+              <span *ngIf="producto.categoria === 'Bebidas'">🥤</span>
+              <span *ngIf="producto.categoria === 'Snacks'">🍟</span>
+              <span *ngIf="producto.categoria === 'Lácteos'">🥛</span>
+
+            </div>
+          </div>
+
+          <!-- INFORMACIÓN -->
+          <div class="product-info">
+
+            <span class="product-category">
+              {{ producto.categoria }}
+            </span>
+
+            <h3>{{ producto.nombre }}</h3>
+
+            <p>{{ producto.descripcion }}</p>
+
+            <strong>RD${{ producto.precio.toFixed(2) }}</strong>
+          </div>
+
+          <ion-icon
+            name="chevron-forward-outline"
+            class="product-arrow">
+          </ion-icon>
+
+        </ion-item>
+
+        <!-- MENÚ CONTEXTUAL -->
+        <div
+          class="context-menu"
+          *ngIf="productoSeleccionado?.id === producto.id && mostrarMenu">
+
+          <div class="context-menu-header">
+            <strong>{{ producto.nombre }}</strong>
+          </div>
+
+          <button
+            class="context-menu-button"
+            (click)="verDetallesProducto(producto)">
+
+            <ion-icon name="eye-outline"></ion-icon>
+            Ver detalles
+          </button>
+
+          <button
+            class="context-menu-button delete-button"
+            (click)="eliminarDesdeMenu(producto.id)">
+
+            <ion-icon name="trash-outline"></ion-icon>
+            Eliminar producto
+          </button>
+
+          <button
+            class="context-menu-button cancel-button"
+            (click)="cerrarMenuContextual()">
+
+            Cancelar
+          </button>
+        </div>
+
+        <!-- OPCIONES AL DESLIZAR -->
+        <ion-item-options side="end">
+
+          <ion-item-option
+            color="danger"
+            (click)="eliminarProducto(producto.id)">
+
+            <ion-icon
+              name="trash-outline"
+              slot="icon-only">
+            </ion-icon>
+
+          </ion-item-option>
+
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-list>
+  </section>
+
+  <!-- ESTADO VACÍO -->
+  <section
+    class="empty-products"
+    *ngIf="productos.length === 0">
+
+    <div class="empty-icon">
+      <ion-icon name="basket-outline"></ion-icon>
+    </div>
+
+    <h3>
+      {{ categoriaSeleccionada ? 'Próximamente' : 'No hay productos' }}
+    </h3>
+
+    <p *ngIf="categoriaSeleccionada">
+      Actualmente no tenemos productos disponibles en la categoría
+      <strong>{{ categoriaSeleccionada }}</strong>.
+    </p>
+
+    <p *ngIf="!categoriaSeleccionada">
+      No hay productos disponibles en este momento.
+    </p>
+
+    <ion-button
+      class="empty-button"
+      (click)="navegarCategorias()">
+
+      <ion-icon name="grid-outline" slot="start"></ion-icon>
+      Explorar categorías
+
+    </ion-button>
+  </section>
+
+</ion-content>
+
+<!-- NAVEGACIÓN INFERIOR -->
+<ion-footer class="bottom-footer">
+
+  <ion-toolbar>
+
+    <div class="bottom-navigation">
+
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarInicio()">
+
+        <ion-icon name="home-outline"></ion-icon>
+        <span>Inicio</span>
+      </ion-button>
+
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarCategorias()">
+
+        <ion-icon name="grid-outline"></ion-icon>
+        <span>Categorías</span>
+      </ion-button>
+
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarPedidos()">
+
+        <ion-icon name="receipt-outline"></ion-icon>
+        <span>Pedidos</span>
+      </ion-button>
+
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarPerfil()">
+
+        <ion-icon name="person-outline"></ion-icon>
+        <span>Perfil</span>
+      </ion-button>
+
+    </div>
+
+  </ion-toolbar>
+
+</ion-footer>

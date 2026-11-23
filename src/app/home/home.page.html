@@ -1,21 +1,296 @@
-<ion-header [translucent]="true">
+<ion-header class="main-header">
   <ion-toolbar>
-    <ion-title> Blank </ion-title>
+
+    <!-- BOTÓN PARA ABRIR EL MENÚ LATERAL -->
+    <ion-menu-button
+      slot="start"
+      class="menu-button"
+      menu="main-menu">
+    </ion-menu-button>
+
+    <div class="brand-container">
+      <div class="brand-logo">Y</div>
+      <div class="brand-text">
+        <h1>Ya<span>Voy</span></h1>
+        <p>¡Lo pides, YaVoy!</p>
+      </div>
+    </div>
+
+    <ion-button slot="end" fill="clear" class="cart-button">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-badge color="danger">0</ion-badge>
+    </ion-button>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="home-content">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>
-      Start with Ionic
-      <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a>
+  <!-- Ubicación -->
+  <section class="location-section">
+    <div>
+      <span class="section-label">ENTREGAR EN</span>
+      <div class="location-info">
+        <ion-icon name="location-outline"></ion-icon>
+        <strong>Mi ubicación</strong>
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="delivery-icon">📍</div>
+  </section>
+
+  <!-- Bienvenida -->
+  <section class="welcome-section">
+    <h2>¿Qué necesitas <span>hoy?</span></h2>
+    <p>Todo lo que buscas, hasta tu puerta.</p>
+  </section>
+
+  <!-- Buscador con reconocimiento de voz -->
+  <section class="search-section">
+    <div class="voice-search-row">
+
+      <ion-searchbar
+        [value]="searchTerm"
+        (ionInput)="onSearchInput($event)"
+        placeholder="Busca comida, productos, farmacias..."
+        show-clear-button="focus"
+        class="custom-search">
+      </ion-searchbar>
+
+      <ion-button
+        class="voice-button"
+        (click)="startVoiceSearch()"
+        [disabled]="isListening"
+        aria-label="Buscar mediante voz">
+        <ion-icon name="mic-outline"></ion-icon>
+      </ion-button>
+
+    </div>
+
+    <p class="voice-message" [hidden]="!voiceMessage">
+      {{ voiceMessage }}
     </p>
-  </div>
+
+    <!-- Búsqueda mediante cámara -->
+    <div class="camera-section">
+
+      <input
+        #cameraInput
+        type="file"
+        accept="image/*"
+        capture="environment"
+        hidden
+        (change)="onPhotoSelected($event)">
+
+      <ion-button
+        class="camera-button"
+        expand="block"
+        (click)="cameraInput.click()"
+        aria-label="Buscar producto mediante fotografía">
+        <ion-icon name="camera-outline" slot="start"></ion-icon>
+        Buscar producto con una foto
+      </ion-button>
+
+      <!-- Vista previa de la fotografía -->
+      <div class="photo-preview" [hidden]="!photoPreview">
+        <p>Fotografía seleccionada:</p>
+        <img
+          [src]="photoPreview"
+          alt="Vista previa del producto fotografiado">
+      </div>
+
+      <p class="camera-message" [hidden]="!cameraMessage">
+        {{ cameraMessage }}
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Categorías -->
+  <section class="content-section">
+    <div class="section-heading">
+      <h3>Explora categorías</h3>
+      <span>Ver todas</span>
+    </div>
+
+    <div class="categories-grid">
+      <div class="category-item">
+        <div class="category-icon supermarket">🛒</div>
+        <span>Supermercado</span>
+      </div>
+
+      <div class="category-item">
+        <div class="category-icon pharmacy">💊</div>
+        <span>Farmacia</span>
+      </div>
+
+      <div class="category-item">
+        <div class="category-icon grocery">🏪</div>
+        <span>Colmado</span>
+      </div>
+
+      <div class="category-item">
+        <div class="category-icon restaurant">🍔</div>
+        <span>Restaurantes</span>
+      </div>
+
+      <div class="category-item">
+        <div class="category-icon fastfood">🍕</div>
+        <span>Comida rápida</span>
+      </div>
+
+      <div class="category-item">
+        <div class="category-icon more">🛍️</div>
+        <span>Otros</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner -->
+  <section class="promo-banner">
+    <div class="promo-text">
+      <span>¡AHORRA TIEMPO!</span>
+      <h3>Tú lo pides,<br>nosotros lo llevamos.</h3>
+      <p>Compra sin salir de donde estás.</p>
+    </div>
+    <div class="promo-illustration">🛵</div>
+  </section>
+
+  <!-- Comercios destacados -->
+  <section class="content-section">
+    <div class="section-heading">
+      <h3>Comercios destacados</h3>
+      <span>Ver todos</span>
+    </div>
+
+    <ion-list class="stores-list" lines="none">
+
+      <ion-item class="store-item">
+        <div class="store-card">
+          <div class="store-image store-supermarket">🛒</div>
+          <div class="store-info">
+            <h4>Supermercados</h4>
+            <p>Todo para tu hogar</p>
+            <span>● Disponible próximamente</span>
+          </div>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </ion-item>
+
+      <ion-item class="store-item">
+        <div class="store-card">
+          <div class="store-image store-food">🍽️</div>
+          <div class="store-info">
+            <h4>Restaurantes</h4>
+            <p>Disfruta de tus comidas favoritas</p>
+            <span>● Disponible próximamente</span>
+          </div>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </ion-item>
+
+      <ion-item class="store-item">
+        <div class="store-card">
+          <div class="store-image store-pharmacy">💊</div>
+          <div class="store-info">
+            <h4>Farmacias</h4>
+            <p>Productos de salud y cuidado</p>
+            <span>● Disponible próximamente</span>
+          </div>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </ion-item>
+
+    </ion-list>
+  </section>
+
+  <!-- Productos populares -->
+  <section class="content-section popular-section">
+    <div class="section-heading">
+      <h3>Productos populares</h3>
+      <span>Ver todos</span>
+    </div>
+
+    <ion-card class="popular-card" (click)="verProducto()">
+      <div class="popular-image">
+        <img
+          src="/assets/img/galletas-ritz.png"
+          alt="Galletas Ritz sabor queso">
+      </div>
+
+      <div class="popular-info">
+        <h4>Galletas Ritz</h4>
+        <p>Galletas saladas sabor queso.</p>
+        <strong>RD$45.00</strong>
+      </div>
+
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-card>
+  </section>
+
+  <!-- Botón flotante -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button
+      class="camera-fab"
+      aria-label="Buscar producto con cámara"
+      (click)="cameraInput.click()">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>
+
+<!-- NAVEGACIÓN INFERIOR -->
+<ion-footer class="bottom-footer">
+  <ion-toolbar>
+
+    <div class="bottom-navigation">
+
+      <!-- INICIO -->
+      <ion-button
+        fill="clear"
+        class="nav-item active"
+        (click)="navegarInicio()">
+
+        <ion-icon name="home-outline"></ion-icon>
+        <span>Inicio</span>
+
+      </ion-button>
+
+      <!-- CATEGORÍAS -->
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarCategorias()">
+
+        <ion-icon name="grid-outline"></ion-icon>
+        <span>Categorías</span>
+
+      </ion-button>
+
+      <!-- PEDIDOS -->
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarPedidos()">
+
+        <ion-icon name="receipt-outline"></ion-icon>
+        <span>Pedidos</span>
+
+      </ion-button>
+
+      <!-- PERFIL -->
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarPerfil()">
+
+        <ion-icon name="person-outline"></ion-icon>
+        <span>Perfil</span>
+
+      </ion-button>
+
+    </div>
+
+  </ion-toolbar>
+</ion-footer>

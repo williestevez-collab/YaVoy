@@ -1,12 +1,7 @@
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
+ * Estilos globales de YaVoy
  */
 
 /* Core CSS required for Ionic components to work properly */
@@ -18,20 +13,240 @@
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
 
-/* Optional CSS utils that can be commented out */
+/* Optional CSS utils */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+/* Ionic Dark Mode */
+@import "@ionic/angular/css/palettes/dark.system.css";
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+
+/* =========================================
+   CONFIGURACIÓN GLOBAL YAVOY
+========================================= */
+
+:root {
+  --ion-color-primary: #ff6b00;
+  --ion-color-primary-rgb: 255, 107, 0;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #e05e00;
+  --ion-color-primary-tint: #ff7a1a;
+}
+
+
+/* =========================================
+   MENÚ LATERAL YAVOY
+========================================= */
+
+ion-menu {
+  --width: 280px;
+  --background: #101214;
+  --ion-background-color: #101214;
+  --ion-text-color: #ffffff;
+  --color: #ffffff;
+}
+
+ion-menu::part(container) {
+  background: #101214 !important;
+  border-right: 1px solid #252729;
+}
+
+ion-menu::part(backdrop) {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+ion-menu ion-header,
+ion-menu ion-toolbar {
+  --background: #101214 !important;
+  --color: #ffffff !important;
+  background: #101214 !important;
+}
+
+ion-menu ion-content {
+  --background: #101214 !important;
+  --color: #ffffff !important;
+  background: #101214 !important;
+}
+
+ion-menu ion-list {
+  background: #101214 !important;
+  --background: #101214 !important;
+}
+
+ion-menu ion-item {
+  --background: #101214 !important;
+  --background-hover: #222528 !important;
+  --background-activated: #222528 !important;
+  --background-focused: #222528 !important;
+  --color: #ffffff !important;
+  --border-color: transparent !important;
+  --inner-border-width: 0px !important;
+}
+
+ion-menu ion-item::part(native) {
+  background: #101214 !important;
+  color: #ffffff !important;
+}
+
+ion-menu ion-item ion-icon {
+  color: #ff6b00 !important;
+}
+
+ion-menu ion-item ion-label {
+  color: #ffffff !important;
+}
+
+
+/* =========================================
+   NAVEGACIÓN INFERIOR GLOBAL
+========================================= */
+
+ion-footer.global-bottom-footer {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+
+  background: #17191b !important;
+  border-top: 1px solid #303336 !important;
+}
+
+ion-footer.global-bottom-footer ion-toolbar {
+  --background: #17191b !important;
+  --border-color: transparent !important;
+  --color: #ffffff !important;
+  --min-height: 65px !important;
+
+  background: #17191b !important;
+}
+
+.global-bottom-navigation {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  width: 100% !important;
+
+  background: #17191b !important;
+}
+
+
+/* =========================================
+   BOTONES NAVEGACIÓN GLOBAL
+========================================= */
+
+ion-footer.global-bottom-footer ion-button.global-nav-item {
+  --background: transparent !important;
+  --background-hover: transparent !important;
+  --background-activated: transparent !important;
+  --background-focused: transparent !important;
+
+  --color: #777777 !important;
+  --color-activated: #ff6b00 !important;
+  --color-focused: #ff6b00 !important;
+
+  --ripple-color: transparent !important;
+
+  width: 25% !important;
+  min-width: 0 !important;
+  max-width: 25% !important;
+
+  margin: 0 !important;
+
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+}
+
+
+/* =========================================
+   CONTENIDO INTERNO
+========================================= */
+
+ion-footer.global-bottom-footer
+ion-button.global-nav-item::part(native) {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  gap: 4px !important;
+
+  background: transparent !important;
+  color: #777777 !important;
+
+  padding: 5px 0 !important;
+}
+
+
+/* =========================================
+   ICONOS
+========================================= */
+
+ion-footer.global-bottom-footer
+ion-button.global-nav-item ion-icon {
+  color: #777777 !important;
+  font-size: 23px !important;
+}
+
+
+/* =========================================
+   TEXTOS
+========================================= */
+
+ion-footer.global-bottom-footer
+ion-button.global-nav-item span {
+  color: #777777 !important;
+  font-size: 11px !important;
+}
+
+
+/* =========================================
+   ELEMENTO ACTIVO
+========================================= */
+
+ion-footer.global-bottom-footer
+ion-button.global-nav-item.active {
+  --color: #ff6b00 !important;
+  color: #ff6b00 !important;
+}
+
+ion-footer.global-bottom-footer
+ion-button.global-nav-item.active::part(native) {
+  color: #ff6b00 !important;
+}
+
+ion-footer.global-bottom-footer
+ion-button.global-nav-item.active ion-icon {
+  color: #ff6b00 !important;
+}
+
+ion-footer.global-bottom-footer
+ion-button.global-nav-item.active span {
+  color: #ff6b00 !important;
+  font-weight: 700 !important;
+}
+
+
+/* =========================================
+   FONDO DE NAVEGACIÓN
+========================================= */
+
+ion-footer.global-bottom-footer,
+ion-footer.global-bottom-footer ion-toolbar,
+.global-bottom-navigation {
+  background-color: #17191b !important;
+}
+
+
+/* =========================================
+   ESPACIO DEL CONTENIDO
+========================================= */
+
+ion-router-outlet {
+  display: block;
+}

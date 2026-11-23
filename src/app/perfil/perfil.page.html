@@ -1,0 +1,138 @@
+<ion-header class="perfil-header">
+  <ion-toolbar>
+    <ion-title>Mi perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="perfil-content">
+
+  <!-- PERFIL DEL USUARIO -->
+  <div class="perfil-principal">
+    <div class="avatar">
+      <ion-icon name="person-outline"></ion-icon>
+    </div>
+
+    <h2>Mi cuenta</h2>
+    <p>Bienvenido a YaVoy</p>
+
+    <ion-button class="btn-editar" fill="outline">
+      <ion-icon name="create-outline" slot="start"></ion-icon>
+      Editar perfil
+    </ion-button>
+  </div>
+
+  <!-- INFORMACIÓN PERSONAL -->
+  <div class="seccion">
+    <h3>Información personal</h3>
+
+    <ion-list class="lista-perfil">
+      <ion-item>
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Nombre</h3>
+          <p>Agregar nombre</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="call-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Teléfono</h3>
+          <p>Agregar teléfono</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Correo electrónico</h3>
+          <p>Agregar correo</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- MIS ACTIVIDADES -->
+  <div class="seccion">
+    <h3>Mi actividad</h3>
+
+    <ion-list class="lista-perfil">
+      <ion-item routerLink="/pedidos">
+        <ion-icon name="receipt-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Mis pedidos</h3>
+          <p>Consulta tus compras</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="heart-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Favoritos</h3>
+          <p>Productos que te gustan</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="location-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Mis direcciones</h3>
+          <p>Direcciones de entrega</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- CONFIGURACIÓN -->
+  <div class="seccion">
+    <h3>Configuración</h3>
+
+    <ion-list class="lista-perfil">
+      <ion-item>
+        <ion-icon name="notifications-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Notificaciones</h3>
+          <p>Gestiona tus notificaciones</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Ayuda y soporte</h3>
+          <p>¿Necesitas ayuda?</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Acerca de YaVoy</h3>
+          <p>Información de la aplicación</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- CERRAR SESIÓN -->
+  <div class="cerrar-sesion">
+    <ion-button expand="block" fill="outline" color="danger">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Cerrar sesión
+    </ion-button>
+  </div>
+
+  <div class="version">
+    YaVoy · Tu compra fácil
+  </div>
+
+</ion-content>

@@ -1,0 +1,153 @@
+
+<ion-header class="categorias-header">
+  <ion-toolbar>
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+        </div>
+
+        <div class="brand-text">
+          <h1>YaVoy</h1>
+          <span>Todo lo que necesitas</span>
+        </div>
+      </div>
+
+      <ion-button class="cart-button" fill="clear">
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="categorias-content">
+
+  <!-- ENCABEZADO -->
+  <section class="categorias-intro">
+    <h2>Explora nuestras categorías</h2>
+    <p>Encuentra fácilmente lo que estás buscando.</p>
+  </section>
+
+  <!-- BUSCADOR -->
+  <div class="search-container">
+    <ion-icon name="search-outline"></ion-icon>
+    <ion-input
+      placeholder="Buscar categorías..."
+      type="text">
+    </ion-input>
+  </div>
+
+  <!-- CATEGORÍAS -->
+  <section class="categorias-section">
+
+    <div class="section-heading">
+      <h3>Todos los departamentos</h3>
+    </div>
+
+    <div class="categorias-grid">
+
+      <!-- ALIMENTOS -->
+      <div class="categoria-card" (click)="seleccionarCategoria('Alimentos')">
+        <div class="categoria-icon alimentos">
+          <ion-icon name="fast-food-outline"></ion-icon>
+        </div>
+        <h4>Alimentos</h4>
+        <p>Productos de consumo diario</p>
+      </div>
+
+      <!-- BEBIDAS -->
+      <div class="categoria-card" (click)="seleccionarCategoria('Bebidas')">
+        <div class="categoria-icon bebidas">
+          <ion-icon name="beer-outline"></ion-icon>
+        </div>
+        <h4>Bebidas</h4>
+        <p>Refrescos, jugos y más</p>
+      </div>
+
+      <!-- HOGAR -->
+      <div class="categoria-card" (click)="seleccionarCategoria('Hogar')">
+        <div class="categoria-icon hogar">
+          <ion-icon name="home-outline"></ion-icon>
+        </div>
+        <h4>Hogar</h4>
+        <p>Todo para tu casa</p>
+      </div>
+
+      <!-- LIMPIEZA -->
+      <div class="categoria-card" (click)="seleccionarCategoria('Limpieza')">
+        <div class="categoria-icon limpieza">
+          <ion-icon name="sparkles-outline"></ion-icon>
+        </div>
+        <h4>Limpieza</h4>
+        <p>Productos de limpieza</p>
+      </div>
+
+      <!-- CUIDADO PERSONAL -->
+      <div class="categoria-card" (click)="seleccionarCategoria('Cuidado personal')">
+        <div class="categoria-icon cuidado">
+          <ion-icon name="heart-outline"></ion-icon>
+        </div>
+        <h4>Cuidado personal</h4>
+        <p>Higiene y cuidado personal</p>
+      </div>
+
+      <!-- TECNOLOGÍA -->
+      <div class="categoria-card" (click)="seleccionarCategoria('Tecnología')">
+        <div class="categoria-icon tecnologia">
+          <ion-icon name="phone-portrait-outline"></ion-icon>
+        </div>
+        <h4>Tecnología</h4>
+        <p>Accesorios y dispositivos</p>
+      </div>
+
+      <!-- FARMACIA -->
+      <div class="categoria-card" (click)="seleccionarCategoria('Farmacia')">
+        <div class="categoria-icon farmacia">
+          <ion-icon name="medkit-outline"></ion-icon>
+        </div>
+        <h4>Farmacia</h4>
+        <p>Salud y bienestar</p>
+      </div>
+
+      <!-- MASCOTAS -->
+      <div class="categoria-card" (click)="seleccionarCategoria('Mascotas')">
+        <div class="categoria-icon mascotas">
+          <ion-icon name="paw-outline"></ion-icon>
+        </div>
+        <h4>Mascotas</h4>
+        <p>Productos para mascotas</p>
+      </div>
+
+    </div>
+  </section>
+
+</ion-content>
+
+<!-- NAVEGACIÓN INFERIOR -->
+<ion-footer class="bottom-footer">
+  <ion-toolbar>
+    <div class="bottom-navigation">
+
+      <button class="nav-item" (click)="navegarInicio()">
+        <ion-icon name="home-outline"></ion-icon>
+        <span>Inicio</span>
+      </button>
+
+      <button class="nav-item active">
+        <ion-icon name="grid-outline"></ion-icon>
+        <span>Categorías</span>
+      </button>
+
+      <button class="nav-item" (click)="navegarPedidos()">
+        <ion-icon name="receipt-outline"></ion-icon>
+        <span>Pedidos</span>
+      </button>
+
+      <button class="nav-item" (click)="navegarPerfil()">
+        <ion-icon name="person-outline"></ion-icon>
+        <span>Perfil</span>
+      </button>
+
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,124 @@
+
+<ion-header class="detail-header">
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" class="back-button" (click)="regresar()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+
+    <div class="brand-container">
+      <div class="brand-logo">Y</div>
+      <div class="brand-text">
+        <h1>Ya<span>Voy</span></h1>
+        <p>¡Lo pides, YaVoy!</p>
+      </div>
+    </div>
+
+    <ion-button slot="end" fill="clear" class="cart-button">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-badge color="danger">0</ion-badge>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="detail-content">
+
+  <section class="product-section">
+
+    <div class="section-heading">
+      <h2>Detalle del producto</h2>
+      <ion-button fill="clear" class="favorite-button">
+        <ion-icon name="heart-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="product-image-container">
+      <img
+        [src]="producto.imagen"
+        [alt]="producto.nombre">
+    </div>
+
+    <div class="product-information">
+      <h1>{{ producto.nombre }}</h1>
+      <p>{{ producto.descripcion }}</p>
+
+      <div class="product-price">
+        RD$ {{ producto.precio | number:'1.2-2' }}
+      </div>
+    </div>
+
+    <div class="store-container">
+      <ion-icon name="storefront-outline"></ion-icon>
+      <div>
+        <strong>{{ producto.comercio }}</strong>
+        <span>Comercio disponible</span>
+      </div>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+
+    <div class="quantity-section">
+      <strong>Cantidad</strong>
+
+      <div class="quantity-control">
+        <ion-button
+          fill="clear"
+          (click)="disminuirCantidad()"
+          [disabled]="cantidad <= 1">
+          <ion-icon name="remove-outline"></ion-icon>
+        </ion-button>
+
+        <span>{{ cantidad }}</span>
+
+        <ion-button fill="clear" (click)="aumentarCantidad()">
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <div class="total-container">
+      <span>Total</span>
+      <strong>RD$ {{ producto.precio * cantidad | number:'1.2-2' }}</strong>
+    </div>
+
+    <ion-button
+      class="add-cart-button"
+      expand="block"
+      (click)="agregarAlCarrito()">
+      <ion-icon name="cart-outline" slot="start"></ion-icon>
+      Agregar al carrito
+    </ion-button>
+
+    <p class="confirmation-message" [hidden]="!mensaje">
+      {{ mensaje }}
+    </p>
+
+  </section>
+
+</ion-content>
+
+<ion-footer class="bottom-footer">
+  <ion-toolbar>
+    <div class="bottom-navigation">
+
+      <div class="nav-item active">
+        <ion-icon name="home"></ion-icon>
+        <span>Inicio</span>
+      </div>
+
+      <div class="nav-item">
+        <ion-icon name="grid-outline"></ion-icon>
+        <span>Categorías</span>
+      </div>
+
+      <div class="nav-item">
+        <ion-icon name="receipt-outline"></ion-icon>
+        <span>Pedidos</span>
+      </div>
+
+      <div class="nav-item">
+        <ion-icon name="person-outline"></ion-icon>
+        <span>Perfil</span>
+      </div>
+
+    </div>
+  </ion-toolbar>
+</ion-footer>

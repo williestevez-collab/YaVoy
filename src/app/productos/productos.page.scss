@@ -1,0 +1,775 @@
+
+/* =========================================
+   YA VOY - PANTALLA PRODUCTOS
+   TEMA OSCURO
+========================================= */
+
+/* =========================================
+   HEADER
+========================================= */
+
+.productos-header ion-toolbar {
+  --background: #151819;
+  --color: #ffffff;
+  --min-height: 75px;
+  --padding-start: 12px;
+  --padding-end: 8px;
+  border-bottom: 1px solid #303436;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  background: #ff6b00;
+  color: #ffffff;
+}
+
+.brand-text h1 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.1;
+}
+
+.brand-text h1 span {
+  color: #ff6b00;
+}
+
+.brand-text p {
+  color: #aaaaaa;
+  margin: 3px 0 0;
+  font-size: 11px;
+}
+
+.cart-button {
+  margin: 0;
+  --color: #ff6b00;
+}
+
+.cart-button ion-icon {
+  font-size: 25px;
+}
+
+.cart-button ion-badge {
+  font-size: 12px;
+}
+
+/* =========================================
+   CONTENIDO GENERAL
+========================================= */
+
+.productos-content {
+  --background: #151819;
+  --color: #ffffff;
+  --padding-bottom: 15px;
+}
+
+/* =========================================
+   ENCABEZADO DEL CATÁLOGO
+========================================= */
+
+.catalog-header {
+  padding: 18px 16px 12px;
+}
+
+.catalog-label {
+  color: #ff6b00;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.catalog-header h2 {
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 12px 0;
+}
+
+.catalog-header h2 span {
+  color: #ff6b00;
+}
+
+.catalog-header p {
+  color: #aaaaaa;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* =========================================
+   FILTRO POR CATEGORÍA
+========================================= */
+
+.category-filter {
+  padding: 0 12px 15px;
+}
+
+.category-filter-card {
+  background: #222629;
+  border: 1px solid #383b3e;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.category-filter-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.category-filter-label {
+  color: #999999;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.category-filter-info h3 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.category-filter-info p {
+  color: #999999;
+  font-size: 11px;
+  margin: 0;
+}
+
+.category-filter-card ion-button {
+  --color: #ff6b00;
+  --background: rgba(255, 107, 0, 0.12);
+  --border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+/* =========================================
+   CATEGORÍA SELECCIONADA
+========================================= */
+
+.selected-category {
+  margin: 0 12px 12px;
+  padding: 12px 14px;
+  background: #222629;
+  border: 1px solid #383b3e;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.selected-category-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.category-label {
+  color: #999999;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.selected-category h2 {
+  color: #ffffff;
+  font-size: 17px;
+  margin: 0;
+}
+
+.selected-category p {
+  color: #aaaaaa;
+  font-size: 11px;
+  margin: 0;
+}
+
+.back-categories-button {
+  --color: #ff6b00;
+  font-size: 11px;
+  margin: 0;
+}
+
+/* =========================================
+   PRODUCTO DESTACADO
+========================================= */
+
+.featured-section {
+  padding: 8px 12px 12px;
+}
+
+.featured-card {
+  margin: 0;
+  background: #222629;
+  color: #ffffff;
+  border: 1px solid #383b3e;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* IMAGEN DESTACADA */
+
+.featured-image {
+  width: 100%;
+  height: 155px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+/* INFORMACIÓN DESTACADA */
+
+.featured-info {
+  padding: 12px 15px 15px;
+  background: #222629;
+}
+
+.featured-label {
+  color: #ff6b00;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.featured-info h3 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 800;
+  margin: 6px 0;
+}
+
+.featured-info p {
+  color: #aaaaaa;
+  font-size: 12px;
+  margin: 5px 0 8px;
+}
+
+.featured-info strong {
+  display: block;
+  color: #ff6b00;
+  font-size: 17px;
+}
+
+/* =========================================
+   LISTA DE PRODUCTOS
+========================================= */
+
+.products-section {
+  padding: 10px 12px 20px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 5px 0 12px;
+}
+
+.section-heading h3 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.section-heading span {
+  font-size: 11px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.products-list {
+  padding: 0;
+  background: transparent;
+}
+
+/* CONTENEDOR DE CADA PRODUCTO */
+
+.product-sliding {
+  margin-bottom: 10px;
+  border-radius: 13px;
+  overflow: visible;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* ITEM */
+
+.product-item {
+  --background: #222629;
+  --color: #ffffff;
+  --border-radius: 13px;
+  --min-height: 95px;
+  --padding-start: 10px;
+  --padding-end: 8px;
+  --inner-padding-end: 0;
+  --border-width: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* ORGANIZACIÓN INTERNA */
+
+.product-item::part(native) {
+  display: flex;
+  align-items: center;
+  min-height: 95px;
+  padding: 8px 10px;
+  gap: 10px;
+  background: #222629;
+}
+
+/* IMAGEN DEL PRODUCTO */
+
+.product-image {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  flex: 0 0 72px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 5px;
+}
+
+.product-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+/* INFORMACIÓN DEL PRODUCTO */
+
+.product-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  padding: 4px 0;
+}
+
+.product-category {
+  color: #ff6b00;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-info h3 {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.product-info p {
+  color: #aaaaaa;
+  font-size: 11px;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.product-info strong {
+  color: #ff6b00;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+/* FLECHA */
+
+.product-arrow {
+  color: #888888;
+  font-size: 17px;
+  flex: 0 0 auto;
+  margin-left: 3px;
+}
+
+/* =========================================
+   OPCIONES AL DESLIZAR
+========================================= */
+
+ion-item-options {
+  border-radius: 12px;
+}
+
+ion-item-option {
+  border-radius: 12px;
+}
+
+/* =========================================
+   MENÚ CONTEXTUAL
+========================================= */
+
+.context-menu {
+  position: relative;
+  z-index: 20;
+  margin: 5px 8px 10px;
+  background: #222629;
+  border: 1px solid #383b3e;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.context-menu-header {
+  padding: 8px;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.context-menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  padding: 11px 9px;
+  font-size: 12px;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.context-menu-button ion-icon {
+  font-size: 17px;
+}
+
+.context-menu-button:active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.delete-button {
+  color: #ff5555;
+}
+
+.cancel-button {
+  color: #aaaaaa;
+}
+
+/* =========================================
+   ESTADO VACÍO
+========================================= */
+
+.empty-products {
+  margin: 15px 12px;
+  padding: 25px 18px;
+  text-align: center;
+  background: #222629;
+  border: 1px solid #383b3e;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+}
+
+.empty-icon ion-icon {
+  color: #ff6b00;
+  font-size: 42px;
+}
+
+.empty-products h3 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+.empty-products p {
+  color: #aaaaaa;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.empty-button {
+  --background: #ff6b00;
+  --color: #ffffff;
+  --border-radius: 10px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+/* =========================================
+   MENSAJE CATEGORÍA VACÍA
+========================================= */
+
+.empty-category {
+  margin: 15px 12px;
+  padding: 30px 20px;
+  background: #222629;
+  border: 1px solid #383b3e;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.empty-category ion-icon {
+  font-size: 48px;
+  color: #ff6b00;
+  margin-bottom: 12px;
+}
+
+.empty-category h3 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 800;
+  margin: 8px 0;
+}
+
+.empty-category p {
+  color: #999999;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0 0 15px;
+}
+
+.empty-category ion-button {
+  --background: #ff6b00;
+  --color: #ffffff;
+  --border-radius: 10px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+/* =========================================
+   INDICADOR DE CATEGORÍA
+========================================= */
+
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 107, 0, 0.12);
+  color: #ff6b00;
+  border: 1px solid rgba(255, 107, 0, 0.25);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   TRANSICIÓN
+========================================= */
+
+.product-sliding {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* =========================================
+   TÍTULOS DE CATEGORÍA
+========================================= */
+
+.category-title {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 18px;
+  margin: 0;
+}
+
+.category-subtitle {
+  color: #999999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* =========================================
+   NAVEGACIÓN INFERIOR
+========================================= */
+
+.bottom-footer {
+  --background: #151819;
+  background: #151819;
+  border-top: 1px solid #303436;
+}
+
+.bottom-footer ion-toolbar {
+  --background: #151819;
+  --color: #ffffff;
+  --min-height: 68px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 4px;
+  --padding-bottom: 4px;
+}
+
+.bottom-navigation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 3px;
+  gap: 0;
+}
+
+.bottom-navigation .nav-item {
+  flex: 1 1 25%;
+  min-width: 0;
+  max-width: 25%;
+  margin: 0;
+  height: 58px;
+  padding: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 4px;
+  --padding-bottom: 4px;
+  --color: #ff6b00;
+  font-size: 10px;
+}
+
+.bottom-navigation .nav-item::part(native) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 2px;
+  min-width: 0;
+}
+
+.bottom-navigation .nav-item ion-icon {
+  font-size: 22px;
+  margin: 0;
+}
+
+.bottom-navigation .nav-item span {
+  display: block;
+  font-size: 10px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* =========================================
+   TELÉFONOS PEQUEÑOS
+========================================= */
+
+@media (max-width: 380px) {
+  .bottom-navigation .nav-item span {
+    font-size: 9px;
+  }
+
+  .bottom-navigation .nav-item ion-icon {
+    font-size: 20px;
+  }
+
+  .catalog-header h2 {
+    font-size: 22px;
+  }
+
+  .featured-image {
+    height: 140px;
+  }
+
+  .product-image {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    flex-basis: 65px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 600px) {
+  .products-section,
+  .featured-section,
+  .catalog-header,
+  .category-filter {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .product-image {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    flex-basis: 90px;
+  }
+
+  .product-info h3 {
+    font-size: 15px;
+  }
+
+  .product-info p {
+    font-size: 12px;
+  }
+
+  .featured-image {
+    height: 220px;
+  }
+
+  .bottom-navigation {
+    max-width: 600px;
+    margin: auto;
+  }
+}
+/* ==========================================
+   ZOOM EXCLUSIVO DE LA IMAGEN DESTACADA
+   ========================================== */
+
+.zoom-container {
+  overflow: hidden;
+  touch-action: none;
+  position: relative;
+}
+
+.zoom-image {
+  transform-origin: center center;
+  transition: none;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}

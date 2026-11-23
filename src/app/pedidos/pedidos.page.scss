@@ -1,0 +1,517 @@
+
+/* =========================================
+   YAVOY - PÁGINA DE PEDIDOS
+========================================= */
+
+/* FONDO GENERAL */
+.pedidos-content {
+  --background: #101214;
+  --color: #ffffff;
+  background: #101214;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.pedidos-header {
+  background: #101214;
+}
+
+.pedidos-header ion-toolbar {
+  --background: #101214;
+  --color: #ffffff;
+  --border-color: transparent;
+
+  padding: 5px 10px;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 5px;
+}
+
+.brand-logo {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+
+  background: #ff6b00;
+  border-radius: 11px;
+
+  color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.brand-text h1 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.brand-text h1 span {
+  color: #ff6b00;
+}
+
+.brand-text p {
+  color: #999999;
+  font-size: 9px;
+  margin: 2px 0 0;
+}
+
+.cart-button {
+  --color: #ffffff;
+  --background: transparent;
+  --background-activated: transparent;
+
+  position: relative;
+  margin-right: 5px;
+}
+
+.cart-button ion-icon {
+  font-size: 23px;
+  color: #ffffff;
+}
+
+.cart-button ion-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  font-size: 9px;
+}
+
+/* =========================================
+   INTRODUCCIÓN
+========================================= */
+
+.pedidos-intro {
+  padding: 22px 16px 15px;
+}
+
+.section-label {
+  color: #ff6b00;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.pedidos-intro h2 {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 800;
+  margin: 8px 0;
+}
+
+.pedidos-intro h2 span {
+  color: #ff6b00;
+}
+
+.pedidos-intro p {
+  color: #a0a0a0;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* =========================================
+   RESUMEN DE PEDIDOS
+========================================= */
+
+.resumen-pedidos {
+  display: flex;
+  gap: 10px;
+  padding: 8px 12px;
+}
+
+.summary-card {
+  flex: 1;
+
+  margin: 0;
+
+  background: #1c1f22;
+  color: #ffffff;
+
+  border: 1px solid #292d30;
+  border-radius: 14px;
+
+  padding: 12px;
+
+  box-shadow: none;
+}
+
+.summary-icon {
+  width: 35px;
+  height: 35px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 107, 0, 0.15);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 9px;
+}
+
+.summary-icon ion-icon {
+  color: #ff6b00;
+  font-size: 19px;
+}
+
+.summary-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-info strong {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.summary-info span {
+  color: #999999;
+  font-size: 10px;
+}
+
+/* =========================================
+   HISTORIAL DE PEDIDOS
+========================================= */
+
+.lista-pedidos {
+  padding: 18px 12px 100px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
+.section-heading h3 {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.section-heading span {
+  color: #ff6b00;
+  font-size: 10px;
+}
+
+/* LISTA */
+
+.orders-list {
+  background: transparent;
+  padding: 0;
+}
+
+/* =========================================
+   TARJETAS DE PEDIDOS
+========================================= */
+
+.order-item {
+  --background: #1c1f22;
+  --color: #ffffff;
+  --border-color: transparent;
+
+  --padding-start: 10px;
+  --padding-end: 8px;
+  --inner-padding-end: 0;
+
+  --min-height: 100px;
+
+  background: #1c1f22;
+
+  margin-bottom: 10px;
+
+  border: 1px solid #292d30;
+  border-radius: 13px;
+}
+
+.order-item::part(native) {
+  background: #1c1f22;
+  color: #ffffff;
+  border-radius: 13px;
+}
+
+/* ICONO */
+
+.order-icon {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+
+  border-radius: 10px;
+  background: #292d30;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 10px;
+}
+
+.order-icon ion-icon {
+  color: #ff6b00;
+  font-size: 20px;
+}
+
+/* INFORMACIÓN */
+
+.order-info {
+  flex: 1;
+  padding: 9px 0;
+}
+
+.order-info h3 {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 0 0 4px;
+}
+
+.order-info p {
+  color: #999999;
+  font-size: 9px;
+  margin: 0 0 6px;
+}
+
+.order-info strong {
+  display: block;
+
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+
+  margin-top: 5px;
+}
+
+/* =========================================
+   ESTADOS DE PEDIDOS
+========================================= */
+
+.order-status {
+  display: inline-block;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  padding: 4px 7px;
+
+  border-radius: 20px;
+  margin: 2px 0;
+}
+
+.status-delivered {
+  background: rgba(46, 204, 113, 0.15);
+  color: #4ade80;
+}
+
+.status-process {
+  background: rgba(255, 170, 0, 0.15);
+  color: #ffb347;
+}
+
+.status-cancelled {
+  background: rgba(255, 70, 70, 0.15);
+  color: #ff6b6b;
+}
+
+/* FLECHA */
+
+.order-arrow {
+  color: #666666;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+/* =========================================
+   NAVEGACIÓN INFERIOR
+========================================= */
+
+.bottom-footer {
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 999;
+
+  background: #151719;
+  border-top: 1px solid #292d30;
+}
+
+.bottom-footer ion-toolbar {
+  --background: #151719;
+  --border-color: transparent;
+  --color: #ffffff;
+  --min-height: 60px;
+
+  background: #151719;
+
+  padding: 0;
+}
+
+.bottom-navigation {
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+
+  background: #151719;
+
+  padding: 4px 0;
+}
+
+/* =========================================
+   BOTONES DE NAVEGACIÓN
+========================================= */
+
+.nav-item {
+  --background: transparent;
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --background-hover: transparent;
+
+  --color: #777777;
+  --color-activated: #777777;
+
+  --border-radius: 0;
+
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 5px;
+  --padding-bottom: 5px;
+
+  width: 25%;
+  max-width: 25%;
+  min-width: 25%;
+
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+}
+
+/* INTERIOR DEL BOTÓN IONIC */
+
+.nav-item::part(native) {
+  background: transparent;
+  color: #777777;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 5px 0;
+
+  width: 100%;
+}
+
+/* ICONOS INACTIVOS */
+
+.nav-item ion-icon {
+  color: #777777;
+  font-size: 21px;
+}
+
+/* TEXTOS INACTIVOS */
+
+.nav-item span {
+  color: #777777;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* =========================================
+   BOTÓN ACTIVO
+========================================= */
+
+.nav-item.active {
+  --color: #ff6b00;
+  --color-activated: #ff6b00;
+}
+
+.nav-item.active::part(native) {
+  color: #ff6b00;
+}
+
+.nav-item.active ion-icon {
+  color: #ff6b00;
+}
+
+.nav-item.active span {
+  color: #ff6b00;
+  font-weight: 800;
+}
+
+/* =========================================
+   ESPACIO INFERIOR DEL DISPOSITIVO
+========================================= */
+
+.bottom-footer ion-toolbar {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .pedidos-intro {
+    padding: 20px 14px 12px;
+  }
+
+  .pedidos-intro h2 {
+    font-size: 23px;
+  }
+
+  .resumen-pedidos {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .summary-card {
+    padding: 10px;
+  }
+
+  .summary-info strong {
+    font-size: 20px;
+  }
+
+  .summary-info span {
+    font-size: 9px;
+  }
+
+  .lista-pedidos {
+    padding: 16px 10px 100px;
+  }
+}

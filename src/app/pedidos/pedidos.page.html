@@ -1,0 +1,217 @@
+
+<ion-header class="pedidos-header">
+  <ion-toolbar>
+    <div class="brand-container">
+      <div class="brand-logo">Y</div>
+
+      <div class="brand-text">
+        <h1>Ya<span>Voy</span></h1>
+        <p>¡Lo pides, YaVoy!</p>
+      </div>
+    </div>
+
+    <ion-button slot="end" fill="clear" class="cart-button">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-badge color="danger">0</ion-badge>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="pedidos-content">
+
+  <!-- GESTO: DESLIZAR HACIA ABAJO PARA ACTUALIZAR -->
+  <ion-refresher
+    slot="fixed"
+    (ionRefresh)="actualizarPedidos($event)">
+
+    <ion-refresher-content
+      pullingText="Desliza para actualizar"
+      refreshingText="Actualizando pedidos..."
+      refreshingSpinner="crescent">
+    </ion-refresher-content>
+
+  </ion-refresher>
+
+  <!-- ENCABEZADO -->
+  <section class="pedidos-intro">
+    <span class="section-label">MI CUENTA</span>
+
+    <h2>Mis <span>pedidos</span></h2>
+
+    <p>Consulta el estado de tus compras.</p>
+  </section>
+
+  <!-- RESUMEN -->
+  <section class="resumen-pedidos">
+
+    <ion-card class="summary-card">
+      <div class="summary-icon">
+        <ion-icon name="receipt-outline"></ion-icon>
+      </div>
+
+      <div class="summary-info">
+        <strong>3</strong>
+        <span>Pedidos totales</span>
+      </div>
+    </ion-card>
+
+    <ion-card class="summary-card">
+      <div class="summary-icon">
+        <ion-icon name="time-outline"></ion-icon>
+      </div>
+
+      <div class="summary-info">
+        <strong>1</strong>
+        <span>En proceso</span>
+      </div>
+    </ion-card>
+
+  </section>
+
+  <!-- LISTA DE PEDIDOS -->
+  <section class="lista-pedidos">
+
+    <div class="section-heading">
+      <h3>Historial de pedidos</h3>
+      <span>3 pedidos</span>
+    </div>
+
+    <ion-list class="orders-list" lines="none">
+
+      <!-- PEDIDO 1 -->
+      <ion-item class="order-item">
+
+        <div class="order-icon">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+        </div>
+
+        <div class="order-info">
+          <h3>Pedido #1001</h3>
+          <p>2 productos · 21 nov. 2026</p>
+
+          <div class="order-status status-delivered">
+            Entregado
+          </div>
+
+          <strong>RD$110.00</strong>
+        </div>
+
+        <ion-icon
+          name="chevron-forward-outline"
+          class="order-arrow">
+        </ion-icon>
+
+      </ion-item>
+
+      <!-- PEDIDO 2 -->
+      <ion-item class="order-item">
+
+        <div class="order-icon">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+        </div>
+
+        <div class="order-info">
+          <h3>Pedido #1002</h3>
+          <p>3 productos · 21 nov. 2026</p>
+
+          <div class="order-status status-process">
+            En preparación
+          </div>
+
+          <strong>RD$245.00</strong>
+        </div>
+
+        <ion-icon
+          name="chevron-forward-outline"
+          class="order-arrow">
+        </ion-icon>
+
+      </ion-item>
+
+      <!-- PEDIDO 3 -->
+      <ion-item class="order-item">
+
+        <div class="order-icon">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+        </div>
+
+        <div class="order-info">
+          <h3>Pedido #1003</h3>
+          <p>1 producto · 20 nov. 2026</p>
+
+          <div class="order-status status-cancelled">
+            Cancelado
+          </div>
+
+          <strong>RD$65.00</strong>
+        </div>
+
+        <ion-icon
+          name="chevron-forward-outline"
+          class="order-arrow">
+        </ion-icon>
+
+      </ion-item>
+
+    </ion-list>
+
+  </section>
+
+</ion-content>
+
+<!-- NAVEGACIÓN INFERIOR -->
+<ion-footer class="bottom-footer">
+
+  <ion-toolbar>
+
+    <div class="bottom-navigation">
+
+      <!-- INICIO -->
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarInicio()">
+
+        <ion-icon name="home-outline"></ion-icon>
+        <span>Inicio</span>
+
+      </ion-button>
+
+      <!-- CATEGORÍAS -->
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarCategorias()">
+
+        <ion-icon name="grid-outline"></ion-icon>
+        <span>Categorías</span>
+
+      </ion-button>
+
+      <!-- PEDIDOS -->
+      <ion-button
+        fill="clear"
+        class="nav-item active"
+        (click)="navegarPedidos()">
+
+        <ion-icon name="receipt-outline"></ion-icon>
+        <span>Pedidos</span>
+
+      </ion-button>
+
+      <!-- PERFIL -->
+      <ion-button
+        fill="clear"
+        class="nav-item"
+        (click)="navegarPerfil()">
+
+        <ion-icon name="person-outline"></ion-icon>
+        <span>Perfil</span>
+
+      </ion-button>
+
+    </div>
+
+  </ion-toolbar>
+
+</ion-footer>
